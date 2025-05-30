@@ -8,15 +8,24 @@ st.markdown(
     """
     <style>
     .main {
-        background-image: url("https://images.unsplash.com/photo-1546519638-68e109498ffc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80");
+        background-image: url('https://i.imgur.com/dK2XWVT.jpg');
         background-size: cover;
-        background-repeat: no-repeat;
+        background-position: center;
         background-attachment: fixed;
     }
     .stApp {
-        background-color: rgba(255, 255, 255, 0.9);
+        background-color: rgba(15, 23, 42, 0.90);
+        color: white;
         padding: 2rem;
         border-radius: 10px;
+    }
+    .block-container {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
+    .stDataFrame th, .stDataFrame td {
+        color: #fff !important;
+        background-color: rgba(0, 0, 0, 0.1) !important;
     }
     </style>
     """,
@@ -31,8 +40,10 @@ def load_initial_data():
 
 df = load_initial_data()
 
+st.markdown("### 🟢 Top Hit Board", unsafe_allow_html=True)
+
 with st.form("add_player_form"):
-    st.subheader("➕ Add a Player to Analyze")
+    st.markdown("### ➕ Add a Player to Analyze", unsafe_allow_html=True)
     name = st.text_input("Player Name")
     team = st.text_input("Team")
     last7 = st.number_input("Last 7 Days AVG", format="%.3f")
